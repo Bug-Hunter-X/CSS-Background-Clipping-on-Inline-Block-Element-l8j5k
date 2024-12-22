@@ -1,0 +1,1 @@
+The following CSS code snippet attempts to style a list item with a background color that extends beyond its content. However, due to the `inline-block` display property and the `width` property being set smaller than the content, the background color is clipped and doesn't display as expected.
