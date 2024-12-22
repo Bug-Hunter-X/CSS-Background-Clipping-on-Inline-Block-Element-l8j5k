@@ -1,0 +1,45 @@
+To solve the background clipping issue, you can use one of the following approaches:
+
+**Method 1: Using padding to create the space for the background**
+
+Instead of setting the `width` property explicitly, set a padding that accommodates for the content, which allows the background to extend behind the padding.
+```css
+li {
+  display: inline-block;
+  background-color: lightblue;
+  padding: 10px;
+  /* Avoid width and allow padding to set size */
+}
+```
+
+**Method 2: Using a wrapper**
+
+Wrap the content in another element and set the background color on the wrapper. This prevents the background from being clipped.
+```css
+li {
+  display: inline-block;
+}
+
+.wrapper {
+  background-color: lightblue;
+  display: inline-block;
+  padding: 10px;
+}
+```
+
+**Method 3: Using a pseudo-element to extend background**
+
+Use a pseudo-element (`:before` or `:after`) to extend the background color beyond the content boundaries.
+```css
+li::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: -5px;
+  right: -10px;
+  bottom: -5px;
+  background-color: lightblue;
+  z-index: -1; /*Place the background behind the content*/
+}
+```
+Choose the method that best fits your design and layout needs.
